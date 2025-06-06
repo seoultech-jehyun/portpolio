@@ -1,0 +1,352 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* body와 html이 뷰포트 높이를 차지하도록 설정 */
+    font-family: Arial, sans-serif; /* 기본 폰트 설정 (선택 사항) */
+    background-color: #333;
+    color: #fff;
+}
+
+/* 히어로 섹션: 화면에 고정되고 배경 이미지로 채워집니다. */
+.hero-section {
+    background-image: url('1.png'); /* ★ 여기에 실제 이미지 경로를 넣어주세요! */
+    background-size: cover; /* 이미지가 요소를 꽉 채우도록 */
+    background-position: center; /* 이미지를 가로/세로 중앙에 배치 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
+    background-attachment: fixed; /* ★ 이 속성이 이미지를 화면에 고정시킵니다. */
+    height: 100vh; /* 뷰포트 높이의 100% (화면 전체 높이) */
+    width: 100%;
+}
+
+/* 콘텐츠 섹션: 히어로 섹션 아래에 위치하며 페이지 스크롤에 따라 움직입니다. */
+.content-section {
+    background-color: #333; /* 콘텐츠 섹션의 배경색 */
+    position: relative; /* z-index를 위해 (선택 사항) */
+    z-index: 1; /* 히어로 섹션 위에 나타나도록 (선택 사항) */
+    box-sizing: border-box; /* 패딩이 너비/높이에 포함되도록 */
+}
+
+.content-section h1 {
+    margin: 60px;
+    font-size: 60px;
+}
+
+/* 개별 콘텐츠 블록 스타일 */
+.content-block {
+    padding: 25px;
+    max-width: 1000px; /* 블록의 최대 너비 */
+    /* height: calc(100vh - 189px); */
+    margin-left: auto; /* 중앙 정렬 */
+    margin-right: auto; /* 중앙 정렬 */
+}
+
+/* 콘텐츠 블록 내 제목 div 스타일 */
+.title-div {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 콘텐츠 블록 내 텍스트 div 스타일 */
+.text-div {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 10px; /* 텍스트 div 간 간격 */
+    text-align: justify; /* 양쪽 정렬 (선택 사항) */
+}
+
+/* 스크롤 확보를 위한 여백 div (필요한 경우 높이 조절) */
+.content-block-spacer {
+    height: 600px; /* 이 높이를 조절하여 전체 페이지 스크롤 길이를 조절하세요 */
+}
+
+
+/* 이미지 컨테이너 (content-block 내부 이미지용) */
+.img-container {
+    position: relative; /* 블러 오버레이의 absolute 배치를 위한 기준 */
+    width: 300px;
+    overflow: hidden; /* 이미지가 이 컨테이너를 벗어나지 않도록 */
+    margin-bottom: 20px; /* 이미지와 아래 콘텐츠 간 간격 */
+    display: block;      /* div는 기본적으로 block이지만, 명시적으로 설정 */
+    margin-left: auto;   /* 왼쪽 마진을 자동으로 설정 */
+    margin-right: auto;  /* 오른쪽 마진을 자동으로 설정 */
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 컨테이너를 꽉 채우면서 비율 유지 */
+    object-position: center;
+    display: block;
+}
+
+/* 콘텐츠 블록 내부 이미지 하단 블러 오버레이 */
+.blur-overlay-content {
+    position: absolute;
+    bottom: -20px;          /* img-container의 하단에 배치 */
+    left: 0;
+    width: 120%;
+    height: 30%;        /* 블러를 적용할 이미지 하단 영역의 높이 (조절 가능) */
+    /* 블러 효과를 위한 배경 이미지 설정: img-container img의 src와 동일해야 함 */
+    background-image: 
+        linear-gradient(to top, #333 0%, #333 100%), /* 흰색 페이드 효과 (content-block 배경색과 맞춰주면 더 자연스러움) */
+        url(''); /* ★★★ 이 이미지 경로를 content-block의 img src와 동일하게 설정! ★★★ */
+    background-size: cover;      /* 원본 이미지와 동일하게 꽉 채움 */
+    background-position: center; /* 원본 이미지와 동일하게 중앙 배치 */
+    background-repeat: no-repeat;
+    filter: blur(10px); /* ★ 블러 강도 조절 (px 값으로 조절) */
+    transform: scale(1.02); /* 블러 가장자리 부자연스러움 방지 (선택 사항) */
+}
+
+/* 해시태그 섹션 스타일 */
+.hashtag-section {
+    margin: -70px auto 40px auto; /* 위로 -60px, 아래 40px, 좌우 자동 */
+    padding: 0 20px; /* 좌우 패딩 (모바일 등에서 여백 확보) */
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+    position: relative; /* z-index를 적용하려면 position 속성이 필요합니다. */
+    z-index: 10;
+}
+
+.hashtag-list {
+    list-style: none; /* 목록 기본 점 제거 */
+    padding: 0;       /* 목록 기본 패딩 제거 */
+    margin: 0;        /* 목록 기본 마진 제거 */
+    display: flex;       /* ★ Flexbox 적용: li들을 가로로 나열 */
+    flex-wrap: wrap;     /* 공간이 부족하면 다음 줄로 넘어가도록 설정 */
+    gap: 15px;           /* li들 사이의 간격 (가로/세로 모두 적용) */
+    justify-content: center; /* 해시태그들을 가로 중앙으로 정렬 */
+}
+
+.hashtag-item {
+    border-radius: 20px;       /* 둥근 모서리 */
+    font-size: 10pt;           /* 글자 크기 */
+    font-weight: lighter;
+    white-space: nowrap;       /* 줄바꿈 방지 */
+    cursor: pointer;           /* 마우스 오버 시 포인터 변경 (클릭 가능성 암시) */
+    transition: background-color 0.3s ease; /* 호버 시 부드러운 전환 효과 */
+}
+
+.view-container {
+    background-color: #555;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+/* 전체 스킬 그리드 컨테이너 */
+.content-grid {
+    display: grid; /* 그리드 레이아웃 활성화 */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px; /* 그리드 아이템 간의 간격 */
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+/* 각 스킬 아이템 컨테이너 */
+.content-grid img {
+    width: 60;
+    height: 60px;
+    display: flex; /* 내부 요소를 유연하게 배치 */
+    flex-direction: column; /* 세로 방향으로 정렬 (아이콘 위, 텍스트 아래) */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    border-radius: 8px; /* 둥근 모서리 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    transition: transform 0.2s ease-in-out; /* 호버 시 부드러운 전환 효과 */
+}
+
+/* 호버 효과 */
+.content-grid img:hover {
+    transform: translateY(-5px); /* 마우스 오버 시 위로 살짝 이동 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* 그림자 진하게 */
+}
+
+/* 가로 스크롤 가능한 제품 카드 컨테이너 (Career 섹션용) */
+.product-cards-container {
+    display: grid;
+    /* ★ 수정: 두 줄을 명시적으로 정의합니다. */
+    grid-template-rows: repeat(2, 1fr); /* 2개의 행을 자동으로 동일한 높이(1fr)로 만듭니다. */
+    /* ★ 수정: 아이템들을 먼저 열(column) 방향으로 채우고, 다음 열로 넘어갑니다. */
+    grid-auto-flow: column; 
+    grid-auto-columns: 600px; /* 각 제품 카드의 너비 */
+    gap: 30px; /* 카드들 사이의 간격 */
+    overflow-x: auto; /* 가로 스크롤 바를 생성 */
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 40px;
+    margin: auto -40px;
+    padding: 0 40px;
+    max-width: 1080px; /* 이 컨테이너의 최대 너비가 가려지는 영역을 만듭니다. */
+    box-sizing: border-box;
+
+    /* 양쪽 끝 블러 처리 (이전과 동일) */
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 40px,
+        black calc(100% - 40px),
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 40px,
+        black calc(100% - 40px),
+        transparent
+    );
+
+    /* 스크롤바 숨기기 (선택 사항) */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
+}
+
+/* 개별 제품 카드 스타일 */
+.product-card {
+    scroll-snap-align: start;
+    width: 600px;
+    height: auto;
+    min-height: 250px;
+    background-color: #333; /* 카드 배경색 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+}
+
+/* 제품 카드 내부 콘텐츠 스타일 */
+.product-card p {
+    font-size: 10pt;
+    margin-bottom: 20px;
+    color: #999;
+}
+
+.product-card h2 {
+    font-size: 16pt;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.product-card h3 {
+    font-size: 12pt;
+    font-weight: lighter;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.product-card ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.product-card ul li {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+/* 가로 스크롤 가능한 그리드 컨테이너 */
+.horizontal-scroll-grid-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 400px;
+    gap: 20px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 40px;
+    margin: auto -40px;
+    padding: 0 40px;
+    max-width: 1080px; /* 이 컨테이너의 최대 너비가 가려지는 영역을 만듭니다. */
+    box-sizing: border-box;
+
+    /* 스크롤바 숨기기 (선택 사항: 보이지 않지만 스크롤은 가능) */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
+
+    /* ★★★ 가로 스크롤 양쪽 끝에 블러 처리 핵심 코드 ★★★ */
+    /* 마스크 이미지로 가려지는 부분에 투명도를 조절하여 블러 효과를 냅니다. */
+    mask-image: linear-gradient(
+        to right,
+        transparent,        /* 왼쪽 시작점: 완전 투명 */
+        black 40px,         /* 20px 이후부터 불투명해짐 */
+        black calc(100% - 40px), /* 오른쪽 끝에서 20px 전까지 불투명 */
+        transparent         /* 오른쪽 끝점: 완전 투명 */
+    );
+    -webkit-mask-image: linear-gradient( /* 웹킷 브라우저를 위한 접두사 */
+        to right,
+        transparent,
+        black 40px,
+        black calc(100% - 40px),
+        transparent
+    );
+}
+
+/* 개별 그리드 아이템 스타일 (이전과 동일) */
+/* 개별 그리드 아이템 스타일 */
+.grid-item {
+    scroll-snap-align: start;
+    width: 400px;
+    height: auto;
+    background-color: #555;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease; /* 부드러운 전환 효과 추가 */
+    scroll-snap-align: start;
+    /* transition은 이제 ::after로 옮겨집니다. */
+    position: relative; /* ★ 가상 요소의 absolute 배치를 위한 기준 */
+    overflow: hidden; /* ★ 이미지나 다른 내용이 둥근 모서리 밖으로 넘어가지 않도록 */
+    /* 기존 box-shadow는 ::after로 옮겨집니다. */
+    display: flex;         /* Flexbox 컨테이너로 설정 */
+    flex-direction: column;  /* 아이템들을 세로(열) 방향으로 배치 */
+    justify-content: flex-start; /* 콘텐츠를 상단부터 배치 */
+}
+
+/* ★★★ 호버 시 그림자 효과를 위한 가상 요소 (핵심 수정 부분) ★★★ */
+.grid-item::after {
+    content: ''; /* 가상 요소 생성 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px; /* .grid-item과 동일한 둥근 모서리 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 기본 그림자 */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* 그림자와 변형 모두 부드럽게 */
+    pointer-events: none; /* 가상 요소가 마우스 이벤트를 가로채지 않도록 */
+}
+
+.grid-item:hover::after {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* 호버 시 그림자 진하게, 퍼짐 정도 증가 */
+    transform: translateY(-5px); /* 선택 사항: 살짝 위로 들어 올리는 효과 */
+    z-index: 10; /* 그림자가 다른 요소 위로 보이게 스태킹 컨텍스트를 올립니다. */
+}
+
+.grid-item img {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 20px; /* 이미지 아래에 간격 추가 */
+}
+
+.grid-item h2 {
+    margin: 0 20px;
+    margin-bottom: 10px;
+}
+.grid-item p {
+    margin: 0 20px;
+    margin-bottom: 20px;
+    font-weight: lighter;
+    font-size: 12pt;
+}
+
+.grid-item p b {
+    font-size: 8pt;
+    margin-bottom: 5px;
+    color: #555;
+}

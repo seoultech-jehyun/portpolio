@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고정 이미지와 Div 스크롤</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero-section"></div>
+
+    <div class="content-section">
+        <h1>About me</h1>
+        <div class="content-block">
+            <div class="img-container">
+                <img src="2.png" alt="마이 이모지">
+                <div class="blur-overlay-content"></div>
+            </div>
+            <div class="hashtag-section">
+                <ul class="hashtag-list">
+                    <li class="hashtag-item">#괄목상대</li>
+                    <li class="hashtag-item">#신뢰</li>
+                    <li class="hashtag-item">#피드백,수용</li>
+                    <li class="hashtag-item">#끊임없는_배움</li>
+                </ul>
+            </div>
+            <div class="title-div">Interview</div>
+            <div class="view-container">
+                <h3>Q. 다양한 개발 분야 중 특별히 iOS 앱 개발을 선택하게 된 계기?</h3>
+                <p style="font-weight: lighter;">
+                    학교 수업에서 <b>웹 디자인 및 응용 프로그래밍</b>을 처음 접하면서 코딩의 매력을 느끼게 되었습니다.
+                    특히, <b>애플 웹사이트 제작 과제</b>를 수행하며 <b>애플 생태계의 디자인 철학과 사용자 경험</b>에 깊은 인상을 받았습니다.
+                    이 경험을 통해 사용자에게 직접적이고 직관적인 가치를 제공하는 애플리케이션 개발에 대한 흥미가 커졌고, 이는 자연스럽게 iOS 앱 개발자로의 전향을 결심하는 계기가 되었습니다.<br><br>
+                    저는 iOS 개발이 단순히 코드를 작성하는 것을 넘어, <b>사용자의 삶에 긍정적인 영향을 미칠 수 있는 결과물</b>을 만드는 과정이라고 생각합니다.
+                    또한, <b>Objective-C, Swift, RxSwift</b> 등 끊임없이 발전하는 iOS 개발 생태계 속에서 <b>다양한 프레임워크와 라이브러리를 탐구하고 도입</b>하며 <b>새로운 기술적 도전에 나서는 것</b>을 즐기고 있습니다.
+                    이러한 도전은 저를 지속적으로 성장시키고, 더 나은 앱을 만들기 위한 원동력이 됩니다.
+                </p>
+            </div>
+            <div class="view-container">
+                <h3>Q. 가장 인상 깊었던 기술적 어려움과 해결 과정?</h3>
+                <p style="font-weight: lighter;">
+                    제가 겪었던 가장 인상 깊은 기술적 어려움은 클라우드 서버의 미디어 파일 업로드 시 용량 및 품질 문제였습니다.
+                    고품질 파일 업로드 시 서버의 제한과 속도 문제로 인해 병목 현상이 발생했습니다.<br><br>
+                    초기에는 여러 라이브러리로 압축을 시도했지만 만족스러운 결과를 얻기 어려웠습니다.
+                    저는 단순히 파일 크기를 줄이는 것을 넘어, <b>사용자가 체감하는 품질 저하를 최소화하면서 서버의 부하를 줄일 수 있는 최적의 지점</b>을 찾는 데 집중했습니다.
+                    이를 위해 다양한 압축 알고리즘과 인코딩 방식을 조합하여 <b>수백 번의 코드 테스트를 진행하고 데이터를 분석</b>했습니다.<br><br>
+                    결국, 특정 미디어 타입에 맞는 <b>다단계 커스텀 압축 로직을 직접 구현</b>하고, 파일을 <b>작은 Array에 담아 용량을 계산한 후 청크(chunk)</b> 단위로 끊어서 보내는 방식을 도입했습니다.
+                    또한, 네트워크 불안정 시 업로드 실패를 방지하기 위해 자동으로 재시도하는 로직도 추가했습니다.
+                    이 과정을 통해 저는 품질 저하를 최소화하면서 미디어 파일을 효율적으로 관리하는 솔루션을 찾아낼 수 있었습니다.
+                    이 경험은 문제의 본질을 파고들어 집요하게 해결책을 찾는 것의 중요성을 깨닫게 해주었습니다.
+                </p>
+            </div>
+            <div class="view-container">
+                <h3>Q. 기술적 부채 상황 시 어떻게 결정하고 대처할 것 인가?</h3>
+                <p style="font-weight: lighter;">
+                    기술적 부채 상황에서는 <b>먼저 부채의 영향도와 시급성을 판단</b>합니다.
+                    만약 서비스의 핵심 기능이나 안정성에 치명적인 영향을 준다면, <b>팀과 소통하여 최우선으로 해결</b>할 것을 제안하고 리팩토링이나 버그 픽스에 집중할 것입니다.
+                    당장 심각하지 않다면, <b>단기적 해결책과 장기적 개선 계획을 수립하여 점진적으로 해결</b>해 나가는 것을 선호합니다.
+                    이때 테스트 코드 작성과 문서화는 필수적입니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="title-div">Skill & Tools</div>
+            <h2>Skill</h2>
+            <div class="content-grid">
+                <img src="image/icon/swift.png" alt="Swift 아이콘">
+                <img src="image/icon/objective-c.png" alt="Objective-C 아이콘">
+                <img src="image/icon/nodejs.png" alt="Node.js 아이콘">
+                <img src="image/icon/python.png" alt="Python 아이콘">
+                <img src="image/icon/html.png" alt="HTML 아이콘">
+                <img src="image/icon/css.png" alt="CSS 아이콘">
+                <img src="image/icon/javascript.png" alt="JavaScript 아이콘">
+                <img src="image/icon/java.png" alt="Java 아이콘">
+            </div>
+            <h2>Tools</h2>
+            <div class="content-grid">
+                <img src="image/icon/figma.png" alt="Figma 아이콘">
+                <img src="image/icon/photoshop.png" alt="Photoshop 아이콘">
+                <img src="image/icon/firebase.png" alt="Firebase 아이콘">
+                <img src="image/icon/aws.png" alt="AWS 아이콘">
+                <img src="image/icon/github.png" alt="Github'= 아이콘">
+                <img src="image/icon/notion.png" alt="Notion 아이콘">
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="title-div">Career</div>
+            <div class="product-cards-container">
+                <div class="product-card">
+                    <p>2025.03 - 2025.04</p>
+                    <h2>(주)하이퍼브레인랩</h2>
+                    <h3>시스템사업부 대표직속 PM</h3>
+                    <ul>
+                        <li>자사 업무 알림 서비스 개발</li>
+                        <li>건설HADA, 총괄 책임 (PM)</li>
+                        <li>Brip 웹/앱, 총괄 책임 (PM)</li>
+                        <li>블루투스 웨어러블, 총괄 책임 (PM)</li>
+                        <li>지도기반 화장실 예약, 총괄 책임 (PM)</li>
+                    </ul>
+                </div>
+                <div class="product-card">
+                    <p>2024.01 - 2024.09</p>
+                    <h2>(주)치코</h2>
+                    <h3>플랫폼부문 개발팀 팀장 (팀원 4명)</h3>
+                    <ul>
+                        <li>자사 프로젝트 총괄 책임 (PM)</li>
+                        <li>자사 프로젝트 총괄 책임 (PM)</li>
+                    </ul>
+                </div>
+                <div class="product-card">
+                    <p>2023.01월 - 2023.12</p>
+                    <h2>(주)블링크코퍼레이션</h2>
+                    <h3>개발사업부 기술개발팀 연구원 (팀원 4명)</h3>
+                    <ul>
+                        <li>고양시 파주시 레고양파주, 지역기반 광고 (기획, App)</li>
+                        <li>NS Lab, 계열사 플랫품 개발 (App)</li>
+                    </ul>
+                </div>
+                <div class="product-card">
+                    <p>2019.02 - 2021.06</p>
+                    <h2>(주)이음크리에이티브</h2>
+                    <h3>모바일사업부 개발팀 파트장 (팀원 5명)</h3>
+                    <ul>
+                        <li>부산광역시교육청 부산교육 다모아, 학부모 긴급 알리미 개발 (App)</li>
+                        <li>부산광역시교육청 부산교육 수첩, 교육기관 정보 제공 개발 (App)</li>
+                        <li>충청북도교육청, 충북 소통알리미, 학부모 긴급 알리미 유지보수 (App)</li>
+                        <li>부산여자고등학교 모바일 학생증, 출결 인증 개발 (App)</li>
+                        <li>모바일 학교수첩, SK망 안심전화 개발 (App)</li>
+                        <li>동원개발 비스타동원, 스마트 홈 개발 (App)</li>
+                        <li>대림이편한 연산 더퍼스트, 스마트 홈 개발 (App)</li>
+                        <li>설악 설악해요, 태양광 인버터 발전소 모니터링 개발 (App)</li>
+                        <li>야베스 맑음, 태양광 인버터 발전소 모니터링 개발 (App)</li>
+                        <li>국가연구 개발사업 R&D 진행</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="title-div">Project</div>
+            <div class="horizontal-scroll-grid-container">
+                <div class="grid-item">
+                    <img src="image/chiko.png" alt="">
+                    <h2>CHIKO</h2>
+                    <p>해외 도, 소매 거래 쇼핑몰</p>
+                </div>
+                <div class="grid-item">
+                    <img src="image/legoyangpagu.png" alt="">
+                    <h2>레고양파주</h2>
+                    <p>고양, 파주 시민이라면 모여라~!</p>
+                </div>
+                <div class="grid-item">
+                    <img src="image/aprtment.png" alt="">
+                    <h2>APT</h2>
+                    <p>우리집은 스마트 홈</p>
+                </div>
+                <div class="grid-item">
+                    <img src="image/mobilepass.png" alt="">
+                    <h2>모바일 학생증</h2>
+                    <p>쉽고 빠른 등, 하교 스캐너</p>
+                </div>
+                <div class="grid-item">
+                    <img src="image/kumnamu.png" alt="">
+                    <h2>학교정보통 꿈나무</h2>
+                    <p>우리아이 학교 알리미</p>
+                </div>
+                <div class="grid-item">
+                    <img src="image/damoa.png" alt="">
+                    <h2>부산교육 다모아</h2>
+                    <p>필요한 건 다~ 모았다!</p>
+                </div>
+                <div class="grid-item">
+                    <img src="image/malguem.png" alt="">
+                    <h2>맑음</h2>
+                    <p>태양광 발전 실시간 모니터링</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="title-div">Education</div>
+            <div class="text-div">충분한 콘텐츠를 넣어 스크롤 바가 나타나도록 해주세요.</div>
+            <div class="text-div">이 div는 페이지 하단에 가까이 위치합니다.</div>
+        </div>
+
+        <div class="content-block-spacer"></div> </div>
+</body>
+</html>

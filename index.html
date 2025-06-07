@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="hero-section"></div>
+    <div class="hero-section">
+        <div class="animate-bounce-container">
+            <img src="angle-down.png" alt="down">
+            <img src="angle-down.png" alt="down">
+        </div>
+    </div>
 
     <div class="content-section">
         <h1>About me</h1>
@@ -141,48 +146,80 @@
         <div class="content-block">
             <div class="title-div">Project</div>
             <div class="horizontal-scroll-grid-container">
-                <div class="grid-item">
+                <div class="grid-item" onclick="openModal('detail.html')">
                     <img src="image/chiko.png" alt="">
                     <h2>CHIKO</h2>
                     <p>해외 도, 소매 거래 쇼핑몰</p>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" onclick="openModal('detail.html')">
                     <img src="image/legoyangpagu.png" alt="">
                     <h2>레고양파주</h2>
                     <p>고양, 파주 시민이라면 모여라~!</p>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" onclick="openModal('detail.html')">
                     <img src="image/aprtment.png" alt="">
                     <h2>APT</h2>
                     <p>우리집은 스마트 홈</p>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" onclick="openModal('detail.html')">
                     <img src="image/mobilepass.png" alt="">
                     <h2>모바일 학생증</h2>
                     <p>쉽고 빠른 등, 하교 스캐너</p>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" onclick="openModal('detail.html')">
                     <img src="image/kumnamu.png" alt="">
                     <h2>학교정보통 꿈나무</h2>
                     <p>우리아이 학교 알리미</p>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" onclick="openModal('detail.html')">
                     <img src="image/damoa.png" alt="">
                     <h2>부산교육 다모아</h2>
                     <p>필요한 건 다~ 모았다!</p>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" onclick="openModal('detail.html')">
                     <img src="image/malguem.png" alt="">
                     <h2>맑음</h2>
                     <p>태양광 발전 실시간 모니터링</p>
                 </div>
             </div>
+
+            <div id="detailModal" class="modal-overlay">
+                <div class="modal-content">
+                    <button class="close-button" onclick="closeModal()">&times;</button>
+                    <div id="modalContentArea">
+                        로딩 중...
+                    </div>
+                    </div>
+            </div>
+            <script src="index.js"></script>
         </div>
 
         <div class="content-block">
             <div class="title-div">Education</div>
-            <div class="text-div">충분한 콘텐츠를 넣어 스크롤 바가 나타나도록 해주세요.</div>
-            <div class="text-div">이 div는 페이지 하단에 가까이 위치합니다.</div>
+            <div class="cards-container">
+                <div class="card-item">
+                    <p>2025.03 - 재학중</p>
+                    <h2>서울과학기술대학교</h2>
+                    <h3>정보통신융합공학과</h3>
+                    <ul>
+                        <li>프로그래밍 입문 C</li>
+                        <li>객체지향 프로그래밍 JAVA</li>
+                        <li>웹 프로그래밍 HTML, CSS, JS</li>
+                    </ul>
+                </div>
+                <div class="card-item">
+                    <p>2018.07 - 2018.12</p>
+                    <h2>KNT직업전문학교</h2>
+                    <h3>디지털 디자인 (웹 콘텐츠 디자인 제작)</h3>
+                    <ul>
+                        <li>디지털 디자인 프로젝트 (기획)</li>
+                        <li>디자인 구성요소 설계 및 제작 (스토리보드 작성)</li>
+                        <li>프로토타입 제작 및 테스트 (시안작업)</li>
+                        <li>구현 및 수정보안 (코딩작업)</li>
+                        <li>프로젝트 완료 및 사후관리 (수정 및 보안)</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div class="content-block-spacer"></div> </div>

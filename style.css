@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -5,6 +12,10 @@ body, html {
     font-family: Arial, sans-serif; /* 기본 폰트 설정 (선택 사항) */
     background-color: #333;
     color: #fff;
+}
+
+h1, h2, .title-div {
+    font-family: "GmarketSansBold";
 }
 
 /* 히어로 섹션: 화면에 고정되고 배경 이미지로 채워집니다. */
@@ -16,6 +27,43 @@ body, html {
     background-attachment: fixed; /* ★ 이 속성이 이미지를 화면에 고정시킵니다. */
     height: 100vh; /* 뷰포트 높이의 100% (화면 전체 높이) */
     width: 100%;
+    position: relative; /* 중요: 자식 요소의 absolute 배치를 위한 기준점 설정 */
+}
+
+/* 이미지 컨테이너 스타일 */
+.animate-bounce-container {
+    position: absolute; /* hero-section을 기준으로 절대 위치 지정 */
+    bottom: 20px;       /* hero-section의 바닥에서 20px 위로 떨어뜨림 */
+    left: 50%;          /* hero-section의 가로 중앙에 위치 */
+    transform: translateX(-50%); /* 정확한 가로 중앙 정렬 */
+    z-index: 10;        /* 다른 요소 위에 표시되도록 z-index 설정 (필요시) */
+    /* 기존 이미지 세로 정렬 및 간격, 바운스 애니메이션 관련 스타일은 그대로 유지 */
+    animation: bounce 1s infinite ease-in-out; /* 바운스 애니메이션 적용 */
+    display: flex; /* Flexbox 활성화 */
+    flex-direction: column; /* Flex 아이템들을 세로(열) 방향으로 정렬 */
+}
+
+/* 개별 이미지 스타일 및 애니메이션 */
+.animate-bounce-container img {
+    bottom: 20px;       /* hero-section의 바닥에서 20px 위로 떨어뜨림 */
+    width: 24px;  /* 가로 28px */
+    height: 24px; /* 세로 16px */
+    margin-top: -5px;
+}
+
+/* 두 번째 이미지에만 애니메이션 시작 시차 주기 */
+.animate-bounce-container img:nth-child(2) {
+    animation-delay: 0.2s; /* 0.2초 늦게 시작 */
+}
+
+/* 바운스 애니메이션 정의 */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* 시작과 끝은 제자리 */
+    }
+    50% {
+        transform: translateY(-5px); /* 중간에 5px 위로 이동 */
+    }
 }
 
 /* 콘텐츠 섹션: 히어로 섹션 아래에 위치하며 페이지 스크롤에 따라 움직입니다. */
@@ -201,7 +249,7 @@ body, html {
     scrollbar-width: none;
 }
 
-/* 개별 제품 카드 스타일 */
+/* Career 개별 제품 카드 스타일 */
 .product-card {
     scroll-snap-align: start;
     width: 600px;
@@ -216,20 +264,39 @@ body, html {
     border: 1px solid #999;
 }
 
+/* Education 그리드 컨테이너 스타일 */
+.cards-container {
+    display: grid; /* 그리드 레이아웃 활성화 */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* 그리드 아이템(카드) 사이의 간격 */
+    max-width: 1200px; /* 컨테이너의 최대 너비 (중앙 정렬을 위해) */
+}
+
+.card-item {
+    width: 490px;
+    height: auto;
+    min-height: 100px;
+    background-color: #555; /* 카드 배경색 */
+    justify-content: flex-start;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
 /* 제품 카드 내부 콘텐츠 스타일 */
-.product-card p {
+.product-card p, .card-item p {
     font-size: 10pt;
     margin-bottom: 20px;
     color: #999;
 }
 
-.product-card h2 {
+.product-card h2, .card-item h2 {
     font-size: 16pt;
     margin-top: 0;
     margin-bottom: 5px;
 }
 
-.product-card h3 {
+.product-card h3, .card-item h3 {
     font-size: 12pt;
     font-weight: lighter;
     margin-top: 0;
@@ -237,19 +304,19 @@ body, html {
     text-align: left;
 }
 
-.product-card ul {
+.product-card ul, .card-item ul {
     list-style: disc;
     padding-left: 20px;
     margin: 0;
     flex-grow: 1;
 }
 
-.product-card ul li {
+.product-card ul li, .card-item ul li {
     margin-bottom: 5px;
     line-height: 1.4;
 }
 
-/* 가로 스크롤 가능한 그리드 컨테이너 */
+/* Project 가로 스크롤 가능한 그리드 컨테이너 */
 .horizontal-scroll-grid-container {
     display: grid;
     grid-auto-flow: column;
@@ -350,3 +417,4 @@ body, html {
     margin-bottom: 5px;
     color: #555;
 }
+

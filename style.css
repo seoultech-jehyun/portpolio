@@ -1,7 +1,19 @@
 @font-face {
-    font-family: 'GmarketSansBold';
+    font-family: 'GmarketSans';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300; /* Light */
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500; /* Medium */
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSans';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-    font-weight: normal;
+    font-weight: 700; /* Bold */
     font-style: normal;
 }
 
@@ -15,19 +27,65 @@ body, html {
 }
 
 h1, h2, .title-div {
-    font-family: "GmarketSansBold";
+    font-family: "GmarketSans";
+    font-weight: 700;
 }
 
 /* 히어로 섹션: 화면에 고정되고 배경 이미지로 채워집니다. */
 .hero-section {
-    background-image: url('1.png'); /* ★ 여기에 실제 이미지 경로를 넣어주세요! */
+    background-image: url('background.png'); /* ★ 여기에 실제 이미지 경로를 넣어주세요! */
     background-size: cover; /* 이미지가 요소를 꽉 채우도록 */
     background-position: center; /* 이미지를 가로/세로 중앙에 배치 */
     background-repeat: no-repeat; /* 이미지 반복 방지 */
     background-attachment: fixed; /* ★ 이 속성이 이미지를 화면에 고정시킵니다. */
     height: 100vh; /* 뷰포트 높이의 100% (화면 전체 높이) */
     width: 100%;
+    overflow: hidden;
     position: relative; /* 중요: 자식 요소의 absolute 배치를 위한 기준점 설정 */
+}
+
+.profile_image {
+    position: absolute;
+    width: 550px;
+    height: auto;
+    left: 0;
+    bottom: 0;
+}
+
+.hero-content {
+    width: 100%;
+    height: 100%;
+    position: relative; /* 중요: 자식 요소의 absolute 배치를 위한 기준점 설정 */
+    background-color: #00000020;
+}
+
+.hero-content h1 {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+}
+
+.hero-content h2 {
+    position: absolute;
+    top: 28%;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    color: #555;
+    font-weight: 300;
+}
+
+.hero-content p {
+    position: absolute;
+    top: 42%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #555;
+    /* font-family: "GmarketSans"; */
+    font-weight: 300;
 }
 
 /* 이미지 컨테이너 스타일 */
@@ -72,6 +130,7 @@ h1, h2, .title-div {
     position: relative; /* z-index를 위해 (선택 사항) */
     z-index: 1; /* 히어로 섹션 위에 나타나도록 (선택 사항) */
     box-sizing: border-box; /* 패딩이 너비/높이에 포함되도록 */
+    overflow: hidden;
 }
 
 .content-section h1 {
@@ -102,12 +161,6 @@ h1, h2, .title-div {
     margin-bottom: 10px; /* 텍스트 div 간 간격 */
     text-align: justify; /* 양쪽 정렬 (선택 사항) */
 }
-
-/* 스크롤 확보를 위한 여백 div (필요한 경우 높이 조절) */
-.content-block-spacer {
-    height: 600px; /* 이 높이를 조절하여 전체 페이지 스크롤 길이를 조절하세요 */
-}
-
 
 /* 이미지 컨테이너 (content-block 내부 이미지용) */
 .img-container {
@@ -418,3 +471,18 @@ h1, h2, .title-div {
     color: #555;
 }
 
+footer {
+    padding: 100px 0;
+    width: 100%;
+}
+
+footer p {
+    text-align: center;
+    color: #999;
+    font-size: 10pt;
+}
+
+footer p a {
+    color: #999;
+    text-decoration: none;
+}
